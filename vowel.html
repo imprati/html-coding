@@ -1,0 +1,41 @@
+<html>
+	<body>
+	<input type=text>
+	<button type="submit" onclick="check()">Submit</button>
+	<p id="print"></p>
+		<script>
+		function check(){
+			var input=document.querySelector('input').value;
+			var n=input.length;
+			var flag=0;
+			for(var i=0;i<n;i++)
+			{
+				if(input.charAt(i)=='a' || input.charAt(i)=='e' || input.charAt(i)=='i' || input.charAt(i)=='o' || input.charAt(i)=='u'  ||
+					input.charAt(i)=='A' || input.charAt(i)=='E' || input.charAt(i)=='I' || input.charAt(i)=='O' || input.charAt(i)=='U')
+					{
+						i++;
+						document.getElementById('print').innerHTML=('String Input is: '+input+ '\n' + 'leftmost vowel is:' +input.charAt(i-1)+ '\n' + 'Position of vowel:' + i + '\n');
+						flag=1;
+						break;
+					}
+			}
+			try{
+			if(flag==0){
+			var num=parseInt(input);
+			var rem=0,rev=0;
+			for(i=0;i<n;i++)
+			{
+				rem=num%10;
+				rev=rev*10+rem;
+				num=parseInt(num/10);
+			}
+			document.getElementById('print').innerHTML=('Reverse Number:'+rev);
+			}
+			}
+			catch{
+			alert('NO VOWEL FOUND');
+			}
+			}
+		</script>
+	</body>
+</html>
